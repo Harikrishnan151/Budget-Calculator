@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw_0z20zo3zs8wgnCfYzakUnJnGQbMeyrSkQ&usqp=CAU">
+  <script src="script.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Barlow:wght@100&family=Bebas+Neue&family=Borel&family=Caveat&family=Chewy&family=Cookie&family=Damion&family=Handlee&family=Homemade+Apple&family=IBM+Plex+Sans:wght@100&family=Inter:wght@100&family=Julius+Sans+One&family=Kaisei+HarunoUmi&family=Monoton&family=Mr+Dafoe&family=Mulish:wght@200&family=Nothing+You+Could+Do&family=Noto+Sans+Vithkuqi&family=Open+Sans:wght@300&family=Pacifico&family=Parisienne&family=Permanent+Marker&family=Poppins:wght@100&family=Reenie+Beanie&family=Roboto:wght@300&family=Sacramento&family=Satisfy&family=Sigmar&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <h1 style="color: white; font-family: 'Damion', cursive;">Budget-Assist</h1>
+      </a>
+     
+      <div class=" logoutbtn  ">
+      
+        <button class="btn btn3 btn-danger " onclick="logout()">Logout</button>
+
+      </div>
+
+    </div>
+  </nav>
+
+
+
+  <div id="homepage" class="container-fluid">
+
+
+    <div class="row mb-5">
+      <div class="col-4"></div>
+      <div class="col-4 mr-5" id="box">
+        <h2 id="result" class="mt-4">
+        </h2>
+        <h2 id="totalBudget"></h2>
+        <h2 class="mb-3" id="currentBalance"></h2>
+      </div>
+      <div class="col-4"></div>
+    </div>
+    <!-- income -->
+    <div id="homerow" class="row">
+      <div class="col-6">
+        <button id="incbtn" type="button" class="btn btn-primary mt-5 ms-5" data-bs-toggle="modal"
+          data-bs-target="#income" style="float: right;">
+          Add income
+        </button>
+
+        <!-- Modal -->
+        <div class="modal " id="income" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content bg-success">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Income</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="">
+                  <input type="text" placeholder="income" class="form-control mt-5" id="income_name">
+
+                  <input type="number" placeholder="amount" class="form-control mt-5" id="income_amount">
+
+
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button onclick="income()" type="button" class="btn btn-primary">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="inputincome" class="mt-5 p-5">
+          <h1 style="color: green; text-align: center ;" class="incometxt" id="incomes"></h1>
+
+        </div>
+
+
+      </div>
+      <div id="incomebtncln" class="col-6">
+
+        <button id="addbtn" type="button" class="btn btn-danger mt-5 ms-5" data-bs-toggle="modal"
+          data-bs-target="#expense" style="float: left;">
+          add expense
+        </button>
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade  " id="expense" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content bg-danger">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">EXPENSE</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="">
+                  <input type="text" placeholder="name of expense" class="form-control mt-5" id="expense_name">
+
+                  <input type="number" placeholder="amount" class="form-control mt-5" id="expense_amount">
+
+
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="addExpense()">add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="expout" class="mt-5 p-5">
+          <h1 style="color: red;" class="text-center " id="expn"></h1>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+</body>
+<script>
+
+
+  users = localStorage.getItem('uname');
+  console.log(users);
+  result.innerHTML = `welcome ${users} `
+
+</script>
+
+
+</html>
